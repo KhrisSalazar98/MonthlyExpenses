@@ -1,0 +1,78 @@
+h1 {
+    text-shadow: -1px 4px 7px rgba(0,0,0,0.6);
+}
+
+.opcTheme {
+    color: $color_light_secundario;
+    @include transition_elements();
+}
+
+.Light {
+
+    background-color: $color_light_secundario;
+    @include transition_elements();
+
+    #root {
+
+        header {
+
+            background-color: $color_light_principal;
+            @include transition_elements();
+
+            .container{
+                .row{
+    
+                    .col-12 {
+                        
+                        .noOpc {
+                            color: $color_dark_principal;
+                        }
+
+                    }
+    
+                    .col-12 {
+                        h1 {
+                            color: $blanco;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+
+.Dark {
+
+    background-color: $color_dark_secundario;
+    @include transition_elements();
+
+    #root {
+
+        header {
+
+            background-color: $color_dark_principal;
+            @include transition_elements();
+
+            .container{
+                .row{
+    
+                    .col-12 {
+                        .noOpc {
+                            color: $color_dark_secundario;
+                        }
+                    }
+    
+                    .col-12 {
+                        h1 {
+                            color: $color_light_secundario;
+                        }
+                    }
+                }
+            }
+        }
+
+
+    }
+}
