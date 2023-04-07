@@ -1,7 +1,6 @@
-$rojo: red;
-$font_28: 28px;
-
-.prueba {
-    color: $rojo;
-    font-size: $font_28;
-}
+@import './config/_variables.scss';
+@import './config/_defaultStyles.scss';
+@import './config/_mixins.scss';
+@import './components/_header.scss';
+@import './components/_main.scss';
+@import './config/_mediaQueries.scss';
