@@ -1,3 +1,12 @@
+
+.accordion-button, .accordion-button:focus {
+    box-shadow: $sombra_btn !important;
+}
+
+.accordion-button::after {
+    background-image: url('../../img/accordeon_arrow_down.svg') !important;
+}
+
 .form-switch .form-check-input {
     background-color: $color_light_secundario;
     border-color: transparent;
@@ -21,6 +30,10 @@
 
 .form-switch > .form-check-input:checked[type=checkbox] {
     background-image: url('../../img/circulo-dark-switch.svg') !important;
+}
+
+.numeroMes {
+    font-size: $font_20;
 }
 
 .sombra {

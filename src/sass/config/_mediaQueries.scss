@@ -1,4 +1,13 @@
+
+@media (max-width: 224px) {
+    /* Main */
+    .iconMainTitle {
+        display: none;
+    }
+}
+
 @media (max-width: 280px) {
+    /* Header */
     .iconTitle {
         display: none;
     }

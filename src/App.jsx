@@ -6,6 +6,7 @@ import './sass/style.scss';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { getTheme } from './features/theme/themeSlice';
+import Main from './components/Main';
 
 const KEY_THEME = "monthlyexpenses.theme";
 
@@ -42,6 +43,7 @@ function App() {
   return (
     <>
       <Header selectorTheme={selectorTheme} />
+      <Main />
     </>
   );
 }

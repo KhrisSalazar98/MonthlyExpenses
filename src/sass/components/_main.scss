@@ -1,3 +1,137 @@
 body {
     font-family: $family;
 }
+
+hr {
+    opacity: 1;
+    border-top: 3px solid;
+}
+
+@keyframes txt_accordion_animation {
+    0% { transform: translateY(0); }
+    25% { transform: translateY(-5px); }
+    50% { transform: translateY(0); }
+    75% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
+.Light {
+
+    #root {
+
+        main {
+            .container {
+                h2 {
+                    color: $color_light_principal;
+                    @include transition_elements();
+                }
+
+                hr {
+                    border-color: $color_light_principal;
+                    @include transition_elements();
+                }
+
+                #accordionExample {
+
+                    div {
+                        
+                        background-color: $color_light_principal;
+                        @include transition_elements();
+                        
+                        h2 {
+
+                            button {
+                                background-color: $color_light_principal;
+                                color: $color_light_secundario;
+                                @include transition_elements();
+                            }
+
+                            button:not(.collapsed) {
+                                background-color: $color_dark_principal;
+
+                                span {
+                                    animation: txt_accordion_animation 3s ease-out infinite;
+                                }
+                            }
+                            
+                        }
+
+                        div {
+                            div {
+                                div {
+                                    button {
+                                        color: $color_light_secundario;
+                                        background-color: $color_dark_principal;
+                                        @include transition_elements();
+                                    }
+                                }
+                            }
+                        }
+
+                       
+                    }
+                }
+            }
+        }
+    }
+}
+
+.Dark {
+
+    #root {
+        
+        main {
+            .container {
+                h2 {
+                    color: $color_light_secundario;
+                    @include transition_elements();
+                }
+
+                hr {
+                    color: $color_dark_principal;
+                    @include transition_elements();
+                }
+
+                #accordionExample {
+
+                    div {
+
+                        background-color: $color_dark_principal;
+                        @include transition_elements();
+                        
+                        h2 {
+
+                            button {
+                                background-color: $color_dark_principal;
+                                color: $color_light_secundario;
+                                @include transition_elements();
+                            }
+
+                            button:not(.collapsed) {
+                                background-color: $color_light_principal;
+
+                                span {
+                                    animation: txt_accordion_animation 3s ease-out infinite;
+                                }
+                            }
+                            
+                        }
+
+                        div {
+                            div {
+                                div {
+                                    button {
+                                        color: $color_light_secundario;
+                                        background-color: $color_dark_secundario;
+                                        @include transition_elements();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
