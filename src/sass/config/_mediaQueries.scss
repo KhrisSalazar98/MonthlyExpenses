@@ -1,7 +1,13 @@
+@media (min-width: 200px) {
+    .scroll_row {
+        height: 330px;
+    }
+}
+
 
 @media (max-width: 224px) {
     /* Main */
-    .iconMainTitle {
+    .iconMainList {
         display: none;
     }
 }
@@ -10,5 +16,23 @@
     /* Header */
     .iconTitle {
         display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Main */
+    .data_item_desktop {
+        display: none;
+    }
+}
+
+@media (min-width: 481px) {
+    /* Main */
+    .data_item_mobile {
+        display: none;
+    }
+
+    .scroll_row {
+        height: 290px;
     }
 }

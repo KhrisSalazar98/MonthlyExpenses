@@ -7,6 +7,23 @@ hr {
     border-top: 3px solid;
 }
 
+.scroll_row {
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.scroll_row::-webkit-scrollbar {
+    width: 5px;
+}
+
+.scroll_row::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+}
+
+.txt_noExpenses {
+    animation: txt_noExpenses_animation 3s ease-out infinite;
+}
+
 @keyframes txt_accordion_animation {
     0% { transform: translateY(0); }
     25% { transform: translateY(-5px); }
@@ -15,12 +32,20 @@ hr {
     100% { transform: translateY(0); }
 }
 
+@keyframes txt_noExpenses_animation {
+    0% {transform: scale(1);}
+    25% {transform: scale(1.25);}
+    50% {transform: scale(1);}
+    75% {transform: scale(1.25);}
+    100% {transform: scale(1);}
+}
+
 .Light {
 
     #root {
 
         main {
-            .container {
+            .container-md {
                 h2 {
                     color: $color_light_principal;
                     @include transition_elements();
@@ -65,6 +90,64 @@ hr {
                                         @include transition_elements();
                                     }
                                 }
+                                
+                                /* List */
+                                .container-md {
+
+                                    .scroll_row::-webkit-scrollbar-thumb {
+                                        background-color: $color_dark_principal;
+                                        @include transition_elements();
+                                    }
+                                    
+                                    .row{
+
+
+                                        div {
+                                            div {
+                                                background-color: $color_dark_principal;
+                                                @include transition_elements();
+
+                                                h6 {
+
+                                                    color: $blanco;
+                                                    @include transition_elements();
+                                                    
+                                                    .iconMainList {
+                                                        color: $color_light_secundario;
+                                                        @include transition_elements();
+                                                    }
+                                                }
+
+                                                p {
+                                                    .data_title {
+                                                        color: $color_light_secundario;
+                                                        @include transition_elements();
+                                                    }
+
+                                                    span {
+                                                        color: $blanco;
+                                                        @include transition_elements();
+                                                    }
+                                                }
+
+                                                div {
+
+                                                    button {
+                                                        color: $blanco;
+                                                        background-color: $color_light_principal;
+                                                        @include transition_elements();
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        div {
+                                            .txt_noExpenses {
+                                                color: $blanco;
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
 
@@ -81,7 +164,7 @@ hr {
     #root {
         
         main {
-            .container {
+            .container-md {
                 h2 {
                     color: $color_light_secundario;
                     @include transition_elements();
@@ -126,8 +209,66 @@ hr {
                                         @include transition_elements();
                                     }
                                 }
+
+                                /* List */
+                                .container-md {
+
+                                    .scroll_row::-webkit-scrollbar-thumb {
+                                        background-color: $color_dark_secundario;
+                                        @include transition_elements();
+                                    }
+
+                                    .row {
+                                        div {
+                                            div {
+                                                background-color: $color_dark_secundario;
+                                                @include transition_elements();
+
+                                                h6 {
+
+                                                    color: $color_light_secundario;
+                                                    @include transition_elements();
+                                                    
+                                                    .iconMainList {
+                                                        color: $color_light_principal;
+                                                        @include transition_elements();
+                                                    }
+                                                }
+
+                                                p {
+                                                    .data_title {
+                                                        color: $color_light_principal;
+                                                        @include transition_elements();
+                                                    }
+
+                                                    span {
+                                                        color: $color_light_secundario;
+                                                        @include transition_elements();
+                                                    }
+                                                }
+
+                                                div {
+
+                                                    button {
+                                                        color: $color_light_secundario;
+                                                        background-color: $color_dark_principal;
+                                                        @include transition_elements();
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        div {
+                                            .txt_noExpenses {
+                                                color: $color_light_secundario;
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
+
+
                     }
                 }
             }
