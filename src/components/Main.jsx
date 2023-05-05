@@ -2,7 +2,6 @@ import React from 'react';
 
 import { useSelector } from 'react-redux';
 
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faListOl, faPlus, faCalendarDays, faBookOpen, faHandHoldingDollar, faPenToSquare, faTrashCan, faCircleExclamation} from '@fortawesome/free-solid-svg-icons';
 
