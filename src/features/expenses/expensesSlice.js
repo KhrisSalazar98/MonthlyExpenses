@@ -132,7 +132,7 @@ const initialState = [
         day: new Date().getDate(),
         month: new Intl.DateTimeFormat('es-ES', { month: 'long'}).format(new Date()),
         year: new Date().getFullYear(),
-        monthNumber: new Date().getMonth(),
+        monthNumber: 3,
         description: "Pagar plan Entel",
         price: 20000
     },
@@ -141,7 +141,7 @@ const initialState = [
         day: new Date().getDate(),
         month: new Intl.DateTimeFormat('es-ES', { month: 'long'}).format(new Date()),
         year: new Date().getFullYear(),
-        monthNumber: new Date().getMonth(),
+        monthNumber: 3,
         description: "Pagar plan Entel",
         price: 20000
     },
