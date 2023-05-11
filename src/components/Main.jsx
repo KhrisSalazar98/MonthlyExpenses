@@ -15,6 +15,7 @@ const Main = () => {
     const dispatch = useDispatch();
 
     const selectorExpenses = useSelector(state => state.expenses);
+    const selectorCommonExpenses = useSelector(state => state.commonExpenses);
     const selectorTextMonth = useSelector(state => state.textMonth);
 
     const fecha = new Date();
@@ -133,13 +134,9 @@ const Main = () => {
                                                                 <label htmlFor="gasto_normal">Gasto: </label><br />
                                                                 <select onChange={handleChange} ref={selectGastoRef} name="description" className='mt-2 rounded-2 py-1' id="gasto_normal">
                                                                     <option value="0">Selecciona un gasto</option>
-                                                                    <option value="Luz">Luz</option>
-                                                                    <option value="Agua">Agua</option>
-                                                                    <option value="TV Cable">TV Cable</option>
-                                                                    <option value="Internet Hogar">Internet Hogar</option>
-                                                                    <option value="Plan Telefonía Móvil">Plan Telefonía Móvil</option>
-                                                                    <option value="Compras de Supermerdado">Compras de Supermerdado</option>
-                                                                    <option value="Compras de Verdulería">Compras de Verdulería</option>
+                                                                    {selectorCommonExpenses.map((cmExp) => (
+                                                                        <option key={cmExp.id} value={cmExp.name}>{cmExp.name}</option>
+                                                                    ))}
                                                                 </select>
                                                             </div>
                                                             
