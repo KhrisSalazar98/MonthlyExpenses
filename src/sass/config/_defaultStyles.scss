@@ -19,9 +19,15 @@ input:focus {
     outline: none;
 }
 
+/* Select */
 select:focus {
     outline: none;
 }
+
+option:hover {
+    background-color: $color_light_secundario !important;
+}
+
 
 /* Switch */
 .form-switch .form-check-input {
