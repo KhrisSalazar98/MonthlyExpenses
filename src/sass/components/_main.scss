@@ -226,6 +226,10 @@ hr {
                                                                     }
                                                                 }
 
+                                                                .input_form {
+                                                                    background-color: $blanco;
+                                                                }
+
                                                                 button {
                                                                     color: $blanco;
                                                                     background-color: $color_dark_principal;
@@ -443,6 +447,10 @@ hr {
                                                                     option:hover {
                                                                         background-color: $color_dark_secundario !important;
                                                                     }
+                                                                }
+
+                                                                .input_form {
+                                                                    background-color: $color_light_secundario;
                                                                 }
 
                                                                 button {

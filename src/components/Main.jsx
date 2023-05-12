@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addExp } from '../features/expenses/expensesSlice';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faListOl, faPlus} from '@fortawesome/free-solid-svg-icons';
+import {faBookOpen, faHandHoldingDollar, faListOl, faPlus, faReadMe} from '@fortawesome/free-solid-svg-icons';
 
 import AccordionExpenses from './AccordionExpenses';
 
@@ -139,7 +139,7 @@ const Main = () => {
 
                                                             {/* Select gasto normal */}
                                                             <div className={`col-12 col-sm-12 mb-4 ${select === true ? 'd-block' : 'd-none'}`}>
-                                                                <label htmlFor="gasto_normal">Gasto: </label><br />
+                                                                <label htmlFor="gasto_normal"><FontAwesomeIcon icon={faBookOpen} /> Gasto: </label><br />
                                                                 <select onChange={handleChange} ref={selectGastoRef} name="description" className='mt-2 rounded-2 py-1' id="gasto_normal">
                                                                     <option value="0">Selecciona un gasto</option>
                                                                     {selectorCommonExpenses.map((cmExp) => (
@@ -150,14 +150,14 @@ const Main = () => {
                                                             
                                                             {/* Input Otro gasto */}
                                                             <div className={`col-12 col-sm-12 mb-4 ${select === true ? 'd-none' : 'd-block'}`}>
-                                                                <label htmlFor="otro">Gasto: </label><br />
-                                                                <input onChange={handleChange} name="description" ref={inputGastoRef} className='border-0 rounded-2 w-100' id="otro" type="text" placeholder='Ingresa un gasto' autoComplete='off' />
+                                                                <label htmlFor="otro"><FontAwesomeIcon icon={faBookOpen} /> Gasto: </label><br />
+                                                                <input onChange={handleChange} name="description" ref={inputGastoRef} className='border-0 mt-2 rounded-2 w-100 input_form' id="otro" type="text" placeholder='Ingresa un gasto' autoComplete='off' />
                                                             </div>
 
                                                             {/* Input precio */}
                                                             <div className='col-12 col-sm-12 mb-5'>
-                                                                <label htmlFor="otro">Precio: </label><br />
-                                                                <input name="price" onChange={handleChange} ref={inputPrecioRef} className='border-0 rounded-2 w-100' id="otro" type="number" placeholder='Ingresa el precio' autoComplete='off' />
+                                                                <label htmlFor="otro"><FontAwesomeIcon icon={faHandHoldingDollar} /> Precio: </label><br />
+                                                                <input name="price" onChange={handleChange} ref={inputPrecioRef} className='border-0 mt-2 rounded-2 w-100 input_form' id="otro" type="number" placeholder='Ingresa el precio' autoComplete='off' />
                                                             </div>
 
                                                             {/* Botón Agregar */}
