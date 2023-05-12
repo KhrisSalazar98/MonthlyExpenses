@@ -24,6 +24,7 @@ const Main = () => {
 
     const selectGastoRef = useRef();
     const inputGastoRef = useRef();
+    const inputPrecioRef = useRef();
 
     const [exp,setExp] = useState({
         description: "",
@@ -32,6 +33,12 @@ const Main = () => {
 
     const handleViewSelect = () => {
         setSelect(!select);
+    }
+
+    const handleCloseModalAdd = () => {
+        inputGastoRef.current.value = null;
+        inputPrecioRef.current.value = null;
+        selectGastoRef.current.value = selectGastoRef.current[0].value;
     }
 
     const handleChange = (e) => {
@@ -51,6 +58,7 @@ const Main = () => {
             id: uuid(),
         }));
     }
+
 
     return (
         <main>
@@ -95,7 +103,7 @@ const Main = () => {
                         <div className="modal-content">
                             <div className="modal-header">
                                 <h3 className="modal-title fs-5" id={`modalAgregarGastoLabel`}><FontAwesomeIcon icon={faPlus} /> Nuevo Gasto</h3>
-                                <button type="button" className="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" />
+                                <button type="button" onClick={handleCloseModalAdd} className="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" />
                             </div>
                             <div className="modal-body">
                             
@@ -120,7 +128,7 @@ const Main = () => {
                                                                         </label>
                                                                     </div>
                                                                     <div className='col-2 form-check'>
-                                                                        <input onChange={handleViewSelect} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
+                                                                        <input  onChange={handleViewSelect} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
                                                                         <label className="form-check-label" htmlFor="flexRadioDefault2">
                                                                             Otro
                                                                         </label>
@@ -130,7 +138,7 @@ const Main = () => {
                                                             </div>
 
                                                             {/* Select gasto normal */}
-                                                            <div className={`col-12 col-sm-12 mb-4 ${select == true ? 'd-block' : 'd-none'}`}>
+                                                            <div className={`col-12 col-sm-12 mb-4 ${select === true ? 'd-block' : 'd-none'}`}>
                                                                 <label htmlFor="gasto_normal">Gasto: </label><br />
                                                                 <select onChange={handleChange} ref={selectGastoRef} name="description" className='mt-2 rounded-2 py-1' id="gasto_normal">
                                                                     <option value="0">Selecciona un gasto</option>
@@ -141,7 +149,7 @@ const Main = () => {
                                                             </div>
                                                             
                                                             {/* Input Otro gasto */}
-                                                            <div className={`col-12 col-sm-12 mb-4 ${select == true ? 'd-none' : 'd-block'}`}>
+                                                            <div className={`col-12 col-sm-12 mb-4 ${select === true ? 'd-none' : 'd-block'}`}>
                                                                 <label htmlFor="otro">Gasto: </label><br />
                                                                 <input onChange={handleChange} name="description" ref={inputGastoRef} className='border-0 rounded-2 w-100' id="otro" type="text" placeholder='Ingresa un gasto' autoComplete='off' />
                                                             </div>
@@ -149,7 +157,7 @@ const Main = () => {
                                                             {/* Input precio */}
                                                             <div className='col-12 col-sm-12 mb-5'>
                                                                 <label htmlFor="otro">Precio: </label><br />
-                                                                <input name="price" onChange={handleChange} className='border-0 rounded-2 w-100' id="otro" type="number" placeholder='Ingresa el precio' autoComplete='off' />
+                                                                <input name="price" onChange={handleChange} ref={inputPrecioRef} className='border-0 rounded-2 w-100' id="otro" type="number" placeholder='Ingresa el precio' autoComplete='off' />
                                                             </div>
 
                                                             {/* Botón Agregar */}
