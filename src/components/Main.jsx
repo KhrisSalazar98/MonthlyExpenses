@@ -4,6 +4,7 @@ import {v4 as uuid} from 'uuid';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { addExp } from '../features/expenses/expensesSlice';
+import { increaseTotal } from '../features/monthlyTotal/monthlyTotalSlice';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faListOl} from '@fortawesome/free-solid-svg-icons';
@@ -18,6 +19,7 @@ const Main = () => {
     const selectorExpenses = useSelector(state => state.expenses);
     const selectorCommonExpenses = useSelector(state => state.commonExpenses);
     const selectorTextMonth = useSelector(state => state.textMonth);
+    const selectorMonthlyTotal = useSelector(state => state.monthlyTotal);
 
     const fecha = new Date();
 
@@ -58,6 +60,8 @@ const Main = () => {
             ...exp,
             id: uuid(),
         }));
+
+        dispatch(increaseTotal(exp));
     }
 
 
@@ -72,29 +76,29 @@ const Main = () => {
                 <div className="accordion mt-5" id="accordionExample">
                 
                
-                    <AccordionExpenses fecha={fecha} numero_mes={0} selectorExpenses={selectorExpenses} txt_mes={"Enero"} />
+                    <AccordionExpenses fecha={fecha} numero_mes={0} selectorExpenses={selectorExpenses} txt_mes={"Enero"} selectorMonthlyTotal={selectorMonthlyTotal[0]} />
                 
-                    <AccordionExpenses fecha={fecha} numero_mes={1} selectorExpenses={selectorExpenses} txt_mes={"Febrero"} />
+                    <AccordionExpenses fecha={fecha} numero_mes={1} selectorExpenses={selectorExpenses} txt_mes={"Febrero"} selectorMonthlyTotal={selectorMonthlyTotal[1]} />
 
-                    <AccordionExpenses fecha={fecha} numero_mes={2} selectorExpenses={selectorExpenses} txt_mes={"Marzo"} />
+                    <AccordionExpenses fecha={fecha} numero_mes={2} selectorExpenses={selectorExpenses} txt_mes={"Marzo"} selectorMonthlyTotal={selectorMonthlyTotal[2]} />
                
-                    <AccordionExpenses fecha={fecha} numero_mes={3} selectorExpenses={selectorExpenses} txt_mes={"Abril"} />
+                    <AccordionExpenses fecha={fecha} numero_mes={3} selectorExpenses={selectorExpenses} txt_mes={"Abril"} selectorMonthlyTotal={selectorMonthlyTotal[3]} />
 
-                    <AccordionExpenses fecha={fecha} numero_mes={4} selectorExpenses={selectorExpenses} txt_mes={"Mayo"} />
+                    <AccordionExpenses fecha={fecha} numero_mes={4} selectorExpenses={selectorExpenses} txt_mes={"Mayo"} selectorMonthlyTotal={selectorMonthlyTotal[4]} />
     
-                    <AccordionExpenses fecha={fecha} numero_mes={5} selectorExpenses={selectorExpenses} txt_mes={"Junio"} />
+                    <AccordionExpenses fecha={fecha} numero_mes={5} selectorExpenses={selectorExpenses} txt_mes={"Junio"} selectorMonthlyTotal={selectorMonthlyTotal[5]} />
     
-                    <AccordionExpenses fecha={fecha} numero_mes={6} selectorExpenses={selectorExpenses} txt_mes={"Julio"} />
+                    <AccordionExpenses fecha={fecha} numero_mes={6} selectorExpenses={selectorExpenses} txt_mes={"Julio"} selectorMonthlyTotal={selectorMonthlyTotal[6]} />
         
-                    <AccordionExpenses fecha={fecha} numero_mes={7} selectorExpenses={selectorExpenses} txt_mes={"Agosto"} />
+                    <AccordionExpenses fecha={fecha} numero_mes={7} selectorExpenses={selectorExpenses} txt_mes={"Agosto"} selectorMonthlyTotal={selectorMonthlyTotal[7]} />
             
-                    <AccordionExpenses fecha={fecha} numero_mes={8} selectorExpenses={selectorExpenses} txt_mes={"Septiembre"} />
+                    <AccordionExpenses fecha={fecha} numero_mes={8} selectorExpenses={selectorExpenses} txt_mes={"Septiembre"} selectorMonthlyTotal={selectorMonthlyTotal[8]} />
         
-                    <AccordionExpenses fecha={fecha} numero_mes={9} selectorExpenses={selectorExpenses} txt_mes={"Octubre"} />
+                    <AccordionExpenses fecha={fecha} numero_mes={9} selectorExpenses={selectorExpenses} txt_mes={"Octubre"} selectorMonthlyTotal={selectorMonthlyTotal[9]} />
                 
-                    <AccordionExpenses fecha={fecha} numero_mes={10} selectorExpenses={selectorExpenses} txt_mes={"Noviembre"} />
+                    <AccordionExpenses fecha={fecha} numero_mes={10} selectorExpenses={selectorExpenses} txt_mes={"Noviembre"} selectorMonthlyTotal={selectorMonthlyTotal[10]} />
                 
-                    <AccordionExpenses fecha={fecha} numero_mes={11} selectorExpenses={selectorExpenses} txt_mes={"Diciembre"} />
+                    <AccordionExpenses fecha={fecha} numero_mes={11} selectorExpenses={selectorExpenses} txt_mes={"Diciembre"} selectorMonthlyTotal={selectorMonthlyTotal[11]} />
 
                 </div>
 

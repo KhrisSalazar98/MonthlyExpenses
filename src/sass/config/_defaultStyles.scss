@@ -90,3 +90,9 @@ option:hover {
     -webkit-box-shadow: $sombra_btn !important;
     box-shadow: $sombra_btn !important;
 }
+
+.txt_gasto_mensual {
+    p {
+        font-size: $font_18;
+    }
+}

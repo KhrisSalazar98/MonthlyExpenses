@@ -37,10 +37,10 @@ const ModalAgregarGasto = ({handleCloseModalAdd, selectorTextMonth, handleSubmit
                                   </label>
                                 </div>
                                 <div className='col-12 col-lg-2 form-check'>
-                                    <input  onChange={handleViewSelect} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
-                                    <label className="form-check-label" htmlFor="flexRadioDefault2">
-                                      Otro
-                                    </label>
+                                  <input  onChange={handleViewSelect} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
+                                  <label className="form-check-label" htmlFor="flexRadioDefault2">
+                                    Otro
+                                  </label>
                                 </div>
                               </div>
                                                                 
