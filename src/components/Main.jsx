@@ -102,8 +102,9 @@ const Main = () => {
                     <div className="modal-dialog modal-lg">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h3 className="modal-title fs-5" id={`modalAgregarGastoLabel`}><FontAwesomeIcon icon={faPlus} /> Nuevo Gasto</h3>
+                                <h3 className="modal-title fs-5 modal_titulo_desktop" id={`modalAgregarGastoLabel`}><FontAwesomeIcon className='iconTitle' icon={faPlus} /> Nuevo Gasto</h3>
                                 <button type="button" onClick={handleCloseModalAdd} className="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" />
+                                
                             </div>
                             <div className="modal-body">
                             
@@ -112,8 +113,8 @@ const Main = () => {
 
                                     <div className="row justify-content-center mt-5">
                                         <div className='col-12 col-sm-12 col-md-11'>
-                                            <div className='rounded-3 p-3'>
-                                                <div className="container p-4">
+                                            <div className='rounded-3 p-0 p-lg-3'>
+                                                <div className="container p-3 p-lg-4">
                                                     <form onSubmit={handleSubmit}>
                                                         <div className="row">
 
@@ -121,13 +122,13 @@ const Main = () => {
                                                             <div className='col-12 col-sm-12 mb-4'>
                                                                 <label>Tipo de Gasto: </label>
                                                                 <div className="row container mt-2">
-                                                                    <div className='col-2 form-check'>
+                                                                    <div className='col-12 col-lg-2 form-check'>
                                                                         <input defaultChecked onChange={handleViewSelect} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
                                                                         <label className="form-check-label" htmlFor="flexRadioDefault1">
                                                                             Común
                                                                         </label>
                                                                     </div>
-                                                                    <div className='col-2 form-check'>
+                                                                    <div className='col-12 col-lg-2 form-check'>
                                                                         <input  onChange={handleViewSelect} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
                                                                         <label className="form-check-label" htmlFor="flexRadioDefault2">
                                                                             Otro
@@ -140,7 +141,7 @@ const Main = () => {
                                                             {/* Select gasto normal */}
                                                             <div className={`col-12 col-sm-12 mb-4 ${select === true ? 'd-block' : 'd-none'}`}>
                                                                 <label htmlFor="gasto_normal"><FontAwesomeIcon icon={faBookOpen} /> Gasto: </label><br />
-                                                                <select onChange={handleChange} ref={selectGastoRef} name="description" className='mt-2 rounded-2 py-1' id="gasto_normal">
+                                                                <select onChange={handleChange} ref={selectGastoRef} name="description" className='border-0 mt-2 rounded-2 py-1 w-100' id="gasto_normal">
                                                                     <option value="0">Selecciona un gasto</option>
                                                                     {selectorCommonExpenses.map((cmExp) => (
                                                                         <option key={cmExp.id} value={cmExp.name}>{cmExp.name}</option>

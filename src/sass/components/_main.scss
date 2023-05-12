@@ -205,7 +205,7 @@ hr {
                                                                     @include transition_elements();
                                                                 }
                                                                 .row {
-                                                                    .col-2 {
+                                                                    .col-12 {
                                                                         .form-check-input:checked {
                                                                             background-image: url('../../img/radioButton_light.svg');
                                                                         }
@@ -428,7 +428,7 @@ hr {
                                                                     @include transition_elements();
                                                                 }
                                                                 .row {
-                                                                    .col-2 {
+                                                                    .col-12 {
                                                                         .form-check-input:checked {
                                                                             background-image: url('../../img/radioButton_dark.svg');
                                                                         }
