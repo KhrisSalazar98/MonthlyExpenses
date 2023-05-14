@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faBookOpen, faHandHoldingDollar, faPlus} from '@fortawesome/free-solid-svg-icons';
+import {faBookOpen, faCircleExclamation, faHandHoldingDollar, faPlus} from '@fortawesome/free-solid-svg-icons';
 
 const ModalAgregarGasto = ({handleCloseModalAdd, selectorTextMonth, handleSubmit, handleViewSelect, select, selectGastoRef, selectorCommonExpenses, inputGastoRef, inputPrecioRef, handleChange, validateFields}) => {
   return (
@@ -17,7 +17,7 @@ const ModalAgregarGasto = ({handleCloseModalAdd, selectorTextMonth, handleSubmit
             <div className="modal-body">
                             
               <div className='container'>
-                <p className='text-center mt-4'>Este gasto corresponde al mes de {selectorTextMonth}.</p>
+                <p className='text-center mt-4'>El gasto a ingresar corresponde al mes de {selectorTextMonth}.</p>
 
                 <div className="row justify-content-center mt-5">
                   <div className='col-12 col-sm-12 col-md-11'>
@@ -91,7 +91,7 @@ const ModalAgregarGasto = ({handleCloseModalAdd, selectorTextMonth, handleSubmit
 
                             {/* Botón Agregar */}
                             <div className='col-12 col-sm-12 text-center'>
-                              <button id="btnAgregar" className='border-0 px-4 py-2 rounded-pill btn_disabled sombra_btn' type="submit" data-bs-dismiss="modal"><FontAwesomeIcon className='iconTitle' icon={faPlus} /> Agregar</button>
+                              <button id="btnAgregar" onClick={handleCloseModalAdd} className='border-0 px-4 py-2 rounded-pill btn_disabled sombra_btn' type="submit" data-bs-dismiss="modal"><FontAwesomeIcon className='iconTitle' icon={faPlus} /> Agregar</button>
                             </div>
                           </div>
                         </form>

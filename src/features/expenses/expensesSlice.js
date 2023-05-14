@@ -199,6 +199,7 @@ export const expensesSlice = createSlice({
             const month = new Intl.DateTimeFormat('es-ES', { month: 'long'}).format(new Date());
             const year =  new Date().getFullYear();
             const monthNumber = new Date().getMonth();
+            const gastoNormal = action.payload.select === true ? true : false;
 
             const newExp = {
                 id: action.payload.id,
@@ -207,7 +208,8 @@ export const expensesSlice = createSlice({
                 year,
                 monthNumber,
                 description,
-                price: action.payload.price
+                price: action.payload.price,
+                gastoNormal
             }
 
             state.unshift(newExp);
@@ -218,9 +220,12 @@ export const expensesSlice = createSlice({
             if(expFound){
                 state.splice(state.indexOf(expFound),1);
             }
+        },
+        editExp: (state, action) => {
+
         }
     }
 });
 
-export const {getExpenses, addExp, deleteExp} = expensesSlice.actions;
+export const {getExpenses, addExp, deleteExp, editExp} = expensesSlice.actions;
 export default expensesSlice.reducer;

@@ -326,6 +326,89 @@ hr {
                     }
                 }
             }
+
+            /* Modal Editar Gasto*/
+            #modalEditarGasto {
+                .modal-dialog {
+                    .modal-content {
+                        background-color: $color_light_secundario;
+                        @include transition_elements();
+
+                        .modal-header {
+                            color: $color_light_secundario;
+                            background-color: $color_light_principal;
+                            @include transition_elements();
+                        }
+
+                        .modal-body {
+                            .container {
+
+                                p {
+                                    color: $color_light_principal;
+                                }
+                        
+                                .row{
+                                    .col-12 {
+                                        .rounded-3 {
+                                            background-color: $color_light_principal;
+                                            @include transition_elements();
+
+                                            .container {
+                                                form {
+                                                    .row {
+
+                                                        /* Radio Button */
+                                                        .col-12 {
+                                                            label {
+                                                                color: $color_light_secundario;
+                                                                @include transition_elements();
+                                                            }
+                                                            .row {
+                                                                .col-12 {
+                                                                    .form-check-input:checked {
+                                                                        background-image: url('../../img/radioButton_light.svg');
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+
+                                                    
+                                                        .col-12 {
+                                                            
+                                                            .input_form {
+                                                                background-color: $blanco;
+                                                            }
+
+                                                            button {
+                                                                color: $blanco;
+                                                                background-color: $color_dark_principal;
+                                                                @include transition_elements();
+                                                            }
+
+                                                            button:hover {
+                                                                @include color_hover($blanco, $color_dark_secundario);
+                                                            }
+                                                        }
+
+                                                    
+
+                                                        
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                    
+                            
+                            }
+                            
+                        }
+                    }
+                }
+            }
+
+            
         }
     }
 }
@@ -625,6 +708,99 @@ hr {
                     }
                 }
             }
+
+            /* Modal Editar Gasto*/
+            #modalEditarGasto {
+                .modal-dialog {
+                    .modal-content {
+                        background-color: $color_dark_secundario;
+                        @include transition_elements();
+
+                        .modal-header {
+                            color: $color_light_secundario;
+                            background-color: $color_dark_principal;
+                            @include transition_elements();
+                        }
+
+                        .modal-body {
+                            .container {
+
+                                p {
+                                    color: $color_light_principal;
+                                }
+                        
+                                .row{
+                                    .col-12 {
+                                        .rounded-3 {
+                                            background-color: $color_dark_principal;
+                                            @include transition_elements();
+
+                                            .container {
+                                                form {
+                                                    .row {
+
+                                                        /* Radio Button */
+                                                        .col-12 {
+                                                            label {
+                                                                color: $color_light_secundario;
+                                                                @include transition_elements();
+                                                            }
+                                                            .row {
+                                                                .col-12 {
+                                                                    .form-check-input:checked {
+                                                                        background-image: url('../../img/radioButton_dark.svg');
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+
+                                                    
+                                                        .col-12 {
+                                                            select {
+
+                                                                option {
+                                                                    @include transition_elements();
+                                                                }
+
+                                                                option:hover {
+                                                                    background-color: $color_dark_secundario !important;
+                                                                }
+                                                            }
+
+                                                            .input_form {
+                                                                background-color: $color_light_secundario;
+                                                            }
+
+                                                            button {
+                                                                color: $blanco;
+                                                                background-color: $color_dark_secundario;
+                                                                @include transition_elements();
+                                                            }
+
+                                                            button:hover {
+                                                                @include color_hover($blanco, $color_light_principal);
+                                                            }
+                                                        }
+
+                                                    
+
+                                                        
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                    
+                            
+                            }
+                            
+                        }
+                    }
+                }
+            }
+
+            
         }
     }
 

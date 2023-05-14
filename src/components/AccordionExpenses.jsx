@@ -69,7 +69,7 @@ const AccordionExpenses = ({fecha, numero_mes, selectorExpenses, txt_mes, select
                                                     </p>
 
                                                     <div className='mt-4 mb-2 text-center'>
-                                                        <button className='border-0 rounded-pill px-4 py-2 sombra_btn' type='button'><FontAwesomeIcon className='iconMainList' icon={faPenToSquare} /> Editar</button><br />
+                                                        <button onClick={() => handleGetExpId(exp)} className='border-0 rounded-pill px-4 py-2 sombra_btn' type='button' data-bs-toggle="modal" data-bs-target={`#modalEditarGasto`}><FontAwesomeIcon className='iconMainList' icon={faPenToSquare} /> Editar</button><br />
                                                         <button onClick={() => handleGetExpId(exp)} className='border-0 rounded-pill mt-3 px-4 py-2 sombra_btn' type='button' data-bs-toggle="modal" data-bs-target={`#modalEliminarGasto`}><FontAwesomeIcon className='iconMainList' icon={faTrashCan} /> Eliminar</button>
                                                     </div>
                                                 </div>

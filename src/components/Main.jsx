@@ -12,6 +12,7 @@ import {faListOl} from '@fortawesome/free-solid-svg-icons';
 import AccordionExpenses from './AccordionExpenses';
 import ModalAgregarGasto from './ModalAgregarGasto';
 import ModalEliminarGasto from './ModalEliminarGasto';
+import ModalEditarGasto from './ModalEditarGasto';
 
 const Main = () => {
 
@@ -25,11 +26,13 @@ const Main = () => {
     const fecha = new Date();
 
     const [select, setSelect] = useState(true);
+    const [selectEdit, setSelectEdit] = useState(true);
 
     const selectGastoRef = useRef();
     const inputGastoRef = useRef();
     const inputPrecioRef = useRef();
 
+    
     const [exp,setExp] = useState({
         description: "",
         price: 0
@@ -53,6 +56,10 @@ const Main = () => {
 
     const handleViewSelect = () => {
         setSelect(!select);
+    }
+
+    const handleViewSelectEdit = () => {
+        setSelectEdit(!selectEdit);
     }
 
     const handleCloseModalAdd = () => {
@@ -82,12 +89,13 @@ const Main = () => {
         dispatch(addExp({
             ...exp,
             id: uuid(),
+            select
         }));
 
         dispatch(increaseTotal(exp));
     }
 
-
+    
     return (
         <main>
             <div className='container-md'>
@@ -147,7 +155,13 @@ const Main = () => {
 
             {/* Modal Eliminar Gasto */}
             <ModalEliminarGasto handleSubmit={handleSubmit}/>
-        
+
+            {/* Modal Editar Gasto */}
+            <ModalEditarGasto 
+                handleViewSelectEdit={handleViewSelectEdit}
+                selectEdit={selectEdit}
+                selectorCommonExpenses={selectorCommonExpenses}
+            />
 
         </main>
     )
