@@ -66,7 +66,9 @@ export const monthlyTotalSlice = createSlice({
             state[mes].total = state[mes].total + parseInt(action.payload.price); 
         },
         decreaseTotal: (state, action) => {
-            console.log("Esto debe disminuir el total mensual");
+            const mes = new Date().getMonth();
+
+            state[mes].total = state[mes].total - parseInt(action.payload.price);
         }
     }
 });

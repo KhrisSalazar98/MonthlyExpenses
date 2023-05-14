@@ -11,6 +11,7 @@ import {faListOl} from '@fortawesome/free-solid-svg-icons';
 
 import AccordionExpenses from './AccordionExpenses';
 import ModalAgregarGasto from './ModalAgregarGasto';
+import ModalEliminarGasto from './ModalEliminarGasto';
 
 const Main = () => {
 
@@ -23,7 +24,7 @@ const Main = () => {
 
     const fecha = new Date();
 
-    const [select ,setSelect] = useState(true);
+    const [select, setSelect] = useState(true);
 
     const selectGastoRef = useRef();
     const inputGastoRef = useRef();
@@ -64,6 +65,8 @@ const Main = () => {
         dispatch(increaseTotal(exp));
     }
 
+    
+
 
     return (
         <main>
@@ -96,9 +99,9 @@ const Main = () => {
         
                     <AccordionExpenses fecha={fecha} numero_mes={9} selectorExpenses={selectorExpenses} txt_mes={"Octubre"} selectorMonthlyTotal={selectorMonthlyTotal[9]} />
                 
-                    <AccordionExpenses fecha={fecha} numero_mes={10} selectorExpenses={selectorExpenses} txt_mes={"Noviembre"} selectorMonthlyTotal={selectorMonthlyTotal[10]} />
+                    <AccordionExpenses fecha={fecha} numero_mes={10} selectorExpenses={selectorExpenses} txt_mes={"Noviembre"} selectorMonthlyTotal={selectorMonthlyTotal[10]}/>
                 
-                    <AccordionExpenses fecha={fecha} numero_mes={11} selectorExpenses={selectorExpenses} txt_mes={"Diciembre"} selectorMonthlyTotal={selectorMonthlyTotal[11]} />
+                    <AccordionExpenses fecha={fecha} numero_mes={11} selectorExpenses={selectorExpenses} txt_mes={"Diciembre"} selectorMonthlyTotal={selectorMonthlyTotal[11]}/>
 
                 </div>
 
@@ -119,6 +122,11 @@ const Main = () => {
                 inputPrecioRef={inputPrecioRef}
                 handleChange={handleChange}
             />
+
+            {/* Modal Eliminar Gasto */}
+            <ModalEliminarGasto handleSubmit={handleSubmit}/>
+        
+
         </main>
     )
 }

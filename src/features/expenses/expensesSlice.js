@@ -211,9 +211,16 @@ export const expensesSlice = createSlice({
             }
 
             state.unshift(newExp);
+        },
+        deleteExp: (state, action) => {
+            const expFound = state.find(exp => exp.id === action.payload.id);
+
+            if(expFound){
+                state.splice(state.indexOf(expFound),1);
+            }
         }
     }
 });
 
-export const {getExpenses, addExp} = expensesSlice.actions;
+export const {getExpenses, addExp, deleteExp} = expensesSlice.actions;
 export default expensesSlice.reducer;

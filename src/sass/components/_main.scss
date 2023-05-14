@@ -172,6 +172,7 @@ hr {
                 
             }
 
+            /* Modal Agregar Gasto */
             #modalAgregarGasto {
                 .modal-dialog {
                     .modal-content {
@@ -223,6 +224,80 @@ hr {
                                                                 background-color: $blanco;
                                                             }
 
+                                                            button {
+                                                                color: $blanco;
+                                                                background-color: $color_dark_principal;
+                                                                @include transition_elements();
+                                                            }
+
+                                                            button:hover {
+                                                                @include color_hover($blanco, $color_dark_secundario);
+                                                            }
+                                                        }
+
+                                                    
+
+                                                        
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                    
+                            
+                            }
+                            
+                        }
+                    }
+                }
+            }
+
+            /* Modal Eliminar Gasto */
+            #modalEliminarGasto {
+                .modal-dialog {
+                    .modal-content {
+                        background-color: $color_light_secundario;
+                        @include transition_elements();
+
+                        .modal-header {
+                            color: $color_light_secundario;
+                            background-color: $color_light_principal;
+                            @include transition_elements();
+                        }
+
+                        .modal-body {
+                            .container {
+
+                                p {
+                                    color: $color_light_principal;
+                                }
+                        
+                                .row{
+                                    .col-12 {
+                                        .rounded-3 {
+                                            background-color: $color_light_principal;
+                                            @include transition_elements();
+
+                                            .container {
+                                                form {
+                                                    .row {
+    
+                                                        .col-12 {
+
+                                                            p {
+                                                                .data_title {
+                                                                    color: $color_light_secundario;
+                                                                    @include transition_elements();
+                                                                }
+            
+                                                                span {
+                                                                    color: $blanco;
+                                                                    @include transition_elements();
+                                                                }
+                                                            }
+                                                            
+                                                            
                                                             button {
                                                                 color: $blanco;
                                                                 background-color: $color_dark_principal;
@@ -448,6 +523,80 @@ hr {
                                                                 background-color: $color_light_secundario;
                                                             }
 
+                                                            button {
+                                                                color: $blanco;
+                                                                background-color: $color_dark_secundario;
+                                                                @include transition_elements();
+                                                            }
+
+                                                            button:hover {
+                                                                @include color_hover($blanco, $color_light_principal);
+                                                            }
+                                                        }
+
+                                                    
+
+                                                        
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                    
+                            
+                            }
+                            
+                        }
+                    }
+                }
+            }
+
+            /* Modal Eliminar Gasto */
+            #modalEliminarGasto {
+                .modal-dialog {
+                    .modal-content {
+                        background-color: $color_dark_secundario;
+                        @include transition_elements();
+
+                        .modal-header {
+                            color: $color_light_secundario;
+                            background-color: $color_dark_principal;
+                            @include transition_elements();
+                        }
+
+                        .modal-body {
+                            .container {
+
+                                p {
+                                    color: $color_light_principal;
+                                }
+                        
+                                .row{
+                                    .col-12 {
+                                        .rounded-3 {
+                                            background-color: $color_dark_principal;
+                                            @include transition_elements();
+
+                                            .container {
+                                                form {
+                                                    .row {
+    
+                                                        .col-12 {
+
+                                                            p {
+                                                                .data_title {
+                                                                    color: $color_light_secundario;
+                                                                    @include transition_elements();
+                                                                }
+            
+                                                                span {
+                                                                    color: $blanco;
+                                                                    @include transition_elements();
+                                                                }
+                                                            }
+                                                            
+                                                            
                                                             button {
                                                                 color: $blanco;
                                                                 background-color: $color_dark_secundario;

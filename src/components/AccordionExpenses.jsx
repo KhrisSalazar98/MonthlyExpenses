@@ -5,12 +5,18 @@ import {faPlus, faCalendarDays, faBookOpen, faHandHoldingDollar, faPenToSquare, 
 
 import { useDispatch } from 'react-redux';
 import { changeText } from '../features/textMonths/textMonthsSlice';
+import { addExpDelete } from '../features/deleteExp/deleteExpSlice';
 
 const AccordionExpenses = ({fecha, numero_mes, selectorExpenses, txt_mes, selectorMonthlyTotal}) => {
 
     const dispatch = useDispatch();
+
     const handleChangeText = () => {
         dispatch(changeText(txt_mes));
+    }
+
+    const handleGetExpId = (exp) => {
+        dispatch(addExpDelete(exp));
     }
 
     return (
@@ -64,7 +70,7 @@ const AccordionExpenses = ({fecha, numero_mes, selectorExpenses, txt_mes, select
 
                                                     <div className='mt-4 mb-2 text-center'>
                                                         <button className='border-0 rounded-pill px-4 py-1 sombra_btn' type='button'><FontAwesomeIcon className='iconMainList' icon={faPenToSquare} /> Editar</button><br />
-                                                        <button className='border-0 rounded-pill mt-3 px-4 py-1 sombra_btn' type='button'><FontAwesomeIcon className='iconMainList' icon={faTrashCan} /> Eliminar</button>
+                                                        <button onClick={() => handleGetExpId(exp)} className='border-0 rounded-pill mt-3 px-4 py-1 sombra_btn' type='button' data-bs-toggle="modal" data-bs-target={`#modalEliminarGasto`}><FontAwesomeIcon className='iconMainList' icon={faTrashCan} /> Eliminar</button>
                                                     </div>
                                                 </div>
                                             </div> 
