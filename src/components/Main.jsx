@@ -35,6 +35,22 @@ const Main = () => {
         price: 0
     });
 
+    const validateFields = (selectGastoRef,inputGastoRef,inputPrecioRef) => {
+        
+        const btnAgregar = document.querySelector('#btnAgregar');
+
+        if(select === true){
+            selectGastoRef.current.value !== "0" && inputPrecioRef.current.value.length >= 1 ? btnAgregar.classList.remove("btn_disabled") : btnAgregar.classList.add("btn_disabled");
+            
+        }
+
+        if(select === false){
+            inputGastoRef.current.value.length >= 3 && inputPrecioRef.current.value.length >= 1 ? btnAgregar.classList.remove("btn_disabled") : btnAgregar.classList.add("btn_disabled");
+            
+        }
+
+    }
+
     const handleViewSelect = () => {
         setSelect(!select);
     }
@@ -45,14 +61,20 @@ const Main = () => {
         selectGastoRef.current.value = selectGastoRef.current[0].value;
     }
 
+    
+
     const handleChange = (e) => {
         
         setExp({
             ...exp,
             [e.target.name]: e.target.value,
         });
-    }
 
+        
+        if(e.target.id === "gasto_normal"){
+            validateFields(selectGastoRef,inputGastoRef,inputPrecioRef);
+        }
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -64,8 +86,6 @@ const Main = () => {
 
         dispatch(increaseTotal(exp));
     }
-
-    
 
 
     return (
@@ -121,6 +141,8 @@ const Main = () => {
                 inputGastoRef={inputGastoRef}
                 inputPrecioRef={inputPrecioRef}
                 handleChange={handleChange}
+                validateFields={validateFields}
+            
             />
 
             {/* Modal Eliminar Gasto */}

@@ -3,7 +3,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faBookOpen, faHandHoldingDollar, faPlus} from '@fortawesome/free-solid-svg-icons';
 
-const ModalAgregarGasto = ({handleCloseModalAdd, selectorTextMonth, handleSubmit, handleViewSelect, select, selectGastoRef, selectorCommonExpenses, inputGastoRef, inputPrecioRef, handleChange}) => {
+const ModalAgregarGasto = ({handleCloseModalAdd, selectorTextMonth, handleSubmit, handleViewSelect, select, selectGastoRef, selectorCommonExpenses, inputGastoRef, inputPrecioRef, handleChange, validateFields}) => {
   return (
     <>
       <div className="modal fade" id={`modalAgregarGasto`} tabIndex={-1} aria-labelledby={`modalAgregarGastoLabel`} aria-hidden="true">
@@ -37,7 +37,7 @@ const ModalAgregarGasto = ({handleCloseModalAdd, selectorTextMonth, handleSubmit
                                   </label>
                                 </div>
                                 <div className='col-12 col-lg-2 form-check'>
-                                  <input  onChange={handleViewSelect} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
+                                  <input onChange={handleViewSelect} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
                                   <label className="form-check-label" htmlFor="flexRadioDefault2">
                                     Otro
                                   </label>
@@ -60,18 +60,38 @@ const ModalAgregarGasto = ({handleCloseModalAdd, selectorTextMonth, handleSubmit
                             {/* Input Otro gasto */}
                             <div className={`col-12 col-sm-12 mb-4 ${select === true ? 'd-none' : 'd-block'}`}>
                               <label htmlFor="otro"><FontAwesomeIcon icon={faBookOpen} /> Gasto: </label><br />
-                              <input onChange={handleChange} name="description" ref={inputGastoRef} className='border-0 mt-2 rounded-2 w-100 input_form' id="otro" type="text" placeholder='Ingresa un gasto' autoComplete='off' />
+                              <input 
+                                onChange={handleChange}
+                                onKeyUp={() => validateFields(selectGastoRef,inputGastoRef,inputPrecioRef)}
+                                name="description"
+                                ref={inputGastoRef}
+                                className='border-0 mt-2 rounded-2 w-100 input_form'
+                                id="otro"
+                                type="text"
+                                placeholder='Ingresa un gasto'
+                                autoComplete='off' 
+                              />
                             </div>
 
                             {/* Input precio */}
-                            <div className='col-12 col-sm-12 mb-5'>
+                            <div className='col-12 col-sm-12 mb-4'>
                               <label htmlFor="otro"><FontAwesomeIcon icon={faHandHoldingDollar} /> Precio: </label><br />
-                              <input name="price" onChange={handleChange} ref={inputPrecioRef} className='border-0 mt-2 rounded-2 w-100 input_form' id="otro" type="number" placeholder='Ingresa el precio' autoComplete='off' />
+                              <input
+                                name="price"
+                                onChange={handleChange}
+                                onKeyUp={() => validateFields(selectGastoRef,inputGastoRef,inputPrecioRef)}
+                                ref={inputPrecioRef}
+                                className='border-0 mt-2 rounded-2 w-100 input_form'
+                                id="otro"
+                                type="number"
+                                placeholder='Ingresa el precio'
+                                autoComplete='off' 
+                              />
                             </div>
 
                             {/* Botón Agregar */}
                             <div className='col-12 col-sm-12 text-center'>
-                              <button onClick={handleCloseModalAdd} className='border-0 px-3 py-1 rounded-pill sombra_btn' type="submit" data-bs-dismiss="modal">Agregar</button>
+                              <button id="btnAgregar" className='border-0 px-4 py-2 rounded-pill btn_disabled sombra_btn' type="submit" data-bs-dismiss="modal"><FontAwesomeIcon className='iconTitle' icon={faPlus} /> Agregar</button>
                             </div>
                           </div>
                         </form>

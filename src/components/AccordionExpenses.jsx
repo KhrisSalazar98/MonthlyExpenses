@@ -34,9 +34,9 @@ const AccordionExpenses = ({fecha, numero_mes, selectorExpenses, txt_mes, select
                         <div className='mt-4 text-center text-lg-end'>
 
                             {fecha.getMonth() > numero_mes || fecha.getMonth() < numero_mes ?
-                                (<button className='border-0 opacity-50 rounded-pill px-4 py-1 btnAgregar_falso sombra_btn' type='button'><FontAwesomeIcon icon={faPlus} /> Agregar</button>)  
+                                (<button className='border-0 opacity-50 rounded-pill px-4 py-2 btnAgregar_falso sombra_btn' type='button'><FontAwesomeIcon icon={faPlus} /> Agregar</button>)  
                                 :
-                                (<button onClick={handleChangeText} className='border-0 rounded-pill px-4 py-1 btnAgregar sombra_btn' type='button' data-bs-toggle="modal" data-bs-target={`#modalAgregarGasto`}><FontAwesomeIcon icon={faPlus} /> Agregar</button>) 
+                                (<button onClick={handleChangeText} className='border-0 rounded-pill px-4 py-2 btnAgregar sombra_btn' type='button' data-bs-toggle="modal" data-bs-target={`#modalAgregarGasto`}><FontAwesomeIcon icon={faPlus} /> Agregar</button>) 
                             }
                                 
 
@@ -69,8 +69,8 @@ const AccordionExpenses = ({fecha, numero_mes, selectorExpenses, txt_mes, select
                                                     </p>
 
                                                     <div className='mt-4 mb-2 text-center'>
-                                                        <button className='border-0 rounded-pill px-4 py-1 sombra_btn' type='button'><FontAwesomeIcon className='iconMainList' icon={faPenToSquare} /> Editar</button><br />
-                                                        <button onClick={() => handleGetExpId(exp)} className='border-0 rounded-pill mt-3 px-4 py-1 sombra_btn' type='button' data-bs-toggle="modal" data-bs-target={`#modalEliminarGasto`}><FontAwesomeIcon className='iconMainList' icon={faTrashCan} /> Eliminar</button>
+                                                        <button className='border-0 rounded-pill px-4 py-2 sombra_btn' type='button'><FontAwesomeIcon className='iconMainList' icon={faPenToSquare} /> Editar</button><br />
+                                                        <button onClick={() => handleGetExpId(exp)} className='border-0 rounded-pill mt-3 px-4 py-2 sombra_btn' type='button' data-bs-toggle="modal" data-bs-target={`#modalEliminarGasto`}><FontAwesomeIcon className='iconMainList' icon={faTrashCan} /> Eliminar</button>
                                                     </div>
                                                 </div>
                                             </div> 
