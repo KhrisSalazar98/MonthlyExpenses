@@ -32,6 +32,10 @@ const Main = () => {
     const inputGastoRef = useRef();
     const inputPrecioRef = useRef();
 
+    const selectGastoRef_edit = useRef();
+    const inputGastoRef_edit = useRef();
+    const inputPrecioRef_edit = useRef();
+
     
     const [exp,setExp] = useState({
         description: "",
@@ -95,6 +99,7 @@ const Main = () => {
         dispatch(increaseTotal(exp));
     }
 
+    
     
     return (
         <main>
@@ -161,6 +166,9 @@ const Main = () => {
                 handleViewSelectEdit={handleViewSelectEdit}
                 selectEdit={selectEdit}
                 selectorCommonExpenses={selectorCommonExpenses}
+                selectGastoRef_edit={selectGastoRef_edit}
+                inputGastoRef_edit={inputGastoRef_edit}
+                inputPrecioRef_edit={inputPrecioRef_edit}
             />
 
         </main>

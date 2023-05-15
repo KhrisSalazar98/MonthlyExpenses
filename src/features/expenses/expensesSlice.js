@@ -222,7 +222,14 @@ export const expensesSlice = createSlice({
             }
         },
         editExp: (state, action) => {
+            const {id, selectGasto, inputGasto, inputPrecio, selectEdit} = action.payload;
+            
+            if(inputGasto !== "") {
+                const newDescription = inputGasto[0].toUpperCase() + inputGasto.substring(1).toLowerCase();
+            }
 
+            
+            
         }
     }
 });

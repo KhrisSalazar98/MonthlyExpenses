@@ -1,13 +1,28 @@
-import React from 'react';
+import React  from 'react';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { editExp } from '../features/expenses/expensesSlice';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faBookOpen, faHandHoldingDollar, faPenToSquare, faCircleExclamation} from '@fortawesome/free-solid-svg-icons';
 
-const ModalEditarGasto = ({handleViewSelectEdit,selectEdit,selectorCommonExpenses}) => {
+const ModalEditarGasto = ({handleViewSelectEdit, selectEdit, selectorCommonExpenses, selectGastoRef_edit, inputGastoRef_edit, inputPrecioRef_edit}) => {
 
     const expCaptured = useSelector(state => state.deleteExp);
+
+    const dispatch = useDispatch();
+
+    const handleSubmitEdit = (e) => {
+        e.preventDefault();
+
+        dispatch(editExp({
+            id: expCaptured.id,
+            selectGasto: selectGastoRef_edit.current.value,
+            inputGasto: inputGastoRef_edit.current.value,
+            inputPrecio: inputPrecioRef_edit.current.value,
+            selectEdit
+        }));
+    }
 
 
     return (
@@ -27,10 +42,13 @@ const ModalEditarGasto = ({handleViewSelectEdit,selectEdit,selectorCommonExpense
                                     <div className='col-12 col-sm-12 col-md-11'>
                                         <div className='rounded-3 p-0 p-lg-3'>
                                             <div className="container p-3 p-lg-4">
-                                                <form>
+                                                <form onSubmit={handleSubmitEdit}>
                                                     <div className="row">
 
-                                                        
+                                                        <div className='col-12 col-sm-12 mb-2'>
+                                                            <p className='text-white'><FontAwesomeIcon icon={faBookOpen} /> Gasto Actual: <span>{expCaptured.description}</span></p>
+                                                        </div>
+
                                                         <div className='col-12 col-sm-12 mb-4'>
                                                             <label>Tipo de Gasto: </label>
                                                             <div className="row container mt-2">
@@ -52,10 +70,8 @@ const ModalEditarGasto = ({handleViewSelectEdit,selectEdit,selectorCommonExpense
 
                                                         
                                                         <div className={`col-12 col-sm-12 mb-4 ${selectEdit === true ? 'd-block' : 'd-none'}`}>
-                                                            <label htmlFor="gasto_normal_edit"><FontAwesomeIcon icon={faBookOpen} /> Gasto: </label><br />
-                                                            <select name="description_edit" className='border-0 mt-2 rounded-2 py-1 w-100' id="gasto_normal_edit" defaultValue={expCaptured.gastoNormal === true ? expCaptured.description : "Selecciona una opción"}>
-                                                                {expCaptured.gastoNormal === true ? <option selected value={expCaptured.description}>{expCaptured.description}</option> : ""}
-                                                                
+                                                            <label htmlFor="gasto_normal_edit"><FontAwesomeIcon icon={faBookOpen} /> Nuevo Gasto: </label><br />
+                                                            <select name="description_edit" className='border-0 mt-2 rounded-2 py-1 w-100' ref={selectGastoRef_edit} id="gasto_normal_edit">
                                                                 <option value="Selecciona un gasto">Selecciona un gasto</option>
                                                                 {selectorCommonExpenses.map((cmExp) => (
                                                                     <option className={cmExp.name === expCaptured.description ? "d-none" : ""} key={cmExp.id} value={cmExp.name}>{cmExp.name}</option>
@@ -65,7 +81,7 @@ const ModalEditarGasto = ({handleViewSelectEdit,selectEdit,selectorCommonExpense
                                                             
                                                        
                                                         <div className={`col-12 col-sm-12 mb-4 ${selectEdit === true ? 'd-none' : 'd-block'}`}>
-                                                            <label htmlFor="otro_edit"><FontAwesomeIcon icon={faBookOpen} /> Gasto: </label><br />
+                                                            <label htmlFor="otro_edit"><FontAwesomeIcon icon={faBookOpen} /> Nuevo Gasto: </label><br />
                                                             <input 
                                                                 name="description_edit"
                                                                 className='border-0 mt-2 rounded-2 w-100 input_form'
@@ -73,7 +89,7 @@ const ModalEditarGasto = ({handleViewSelectEdit,selectEdit,selectorCommonExpense
                                                                 type="text"
                                                                 placeholder='Ingresa un gasto'
                                                                 autoComplete='off'
-                                                                defaultValue={expCaptured.gastoNormal === true ? "" : expCaptured.description} 
+                                                                ref={inputGastoRef_edit}
                                                             />
                                                         </div>
 
@@ -87,7 +103,8 @@ const ModalEditarGasto = ({handleViewSelectEdit,selectEdit,selectorCommonExpense
                                                                 type="number"
                                                                 placeholder='Ingresa el precio'
                                                                 autoComplete='off'
-                                                                defaultValue={expCaptured.price} 
+                                                                defaultValue={expCaptured.price}
+                                                                ref={inputPrecioRef_edit} 
                                                             />
                                                         </div>
 
