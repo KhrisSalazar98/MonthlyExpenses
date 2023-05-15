@@ -1,4 +1,4 @@
-import React  from 'react';
+import React, { useEffect, useState }  from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { editExp } from '../features/expenses/expensesSlice';
@@ -9,10 +9,18 @@ import {faBookOpen, faHandHoldingDollar, faPenToSquare, faCircleExclamation} fro
 
 const ModalEditarGasto = ({handleCloseModalEdit, handleViewSelectEdit, selectEdit, selectorCommonExpenses, selectGastoRef_edit, inputGastoRef_edit, inputPrecioRef_edit}) => {
 
-    const expCaptured = useSelector(state => state.deleteExp);
-
     const dispatch = useDispatch();
 
+    const expCaptured = useSelector(state => state.deleteExp);
+
+    try{
+        inputPrecioRef_edit.current.value = expCaptured.price;
+    }catch(err){
+
+    }
+
+    
+    
     const handleSubmitEdit = (e) => {
         e.preventDefault();
 

@@ -11,14 +11,12 @@ export const deleteExpSlice = createSlice({
             return state;
         },
         addExpDelete: (state, action) => {
-            console.log(action.payload);
-            
             state = action.payload;
             return state;
         }
     }
 });
 
-export const {addExpDelete} = deleteExpSlice.actions;
+export const {getExpDelete, addExpDelete} = deleteExpSlice.actions;
 export default deleteExpSlice.reducer;
 
