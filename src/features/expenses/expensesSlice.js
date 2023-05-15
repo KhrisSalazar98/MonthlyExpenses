@@ -222,13 +222,40 @@ export const expensesSlice = createSlice({
             }
         },
         editExp: (state, action) => {
+            
             const {id, selectGasto, inputGasto, inputPrecio, selectEdit} = action.payload;
             
-            if(inputGasto !== "") {
-                const newDescription = inputGasto[0].toUpperCase() + inputGasto.substring(1).toLowerCase();
+            const foundExp = state.find((exp) => exp.id === id);
+
+
+            if(selectEdit === true && selectGasto !== "Selecciona un gasto"){
+                if(foundExp) {
+                    foundExp.description = selectGasto;
+                    foundExp.price = inputPrecio;
+                    foundExp.gastoNormal = selectEdit;
+                }
             }
 
+            if(selectEdit === false && inputGasto !== "") {
+                const newDescription = inputGasto[0].toUpperCase() + inputGasto.substring(1).toLowerCase();
+                
+                if(foundExp) {
+                    foundExp.description = newDescription;
+                    foundExp.price = inputPrecio;
+                    foundExp.gastoNormal = selectEdit;
+                }
             
+            }
+
+            if(selectGasto === "Selecciona un gasto" && inputGasto === ""){
+                
+                if(foundExp) {
+                    foundExp.price = inputPrecio;
+                    foundExp.gastoNormal = selectEdit;
+                }
+            }
+
+
             
         }
     }

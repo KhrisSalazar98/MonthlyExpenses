@@ -72,6 +72,12 @@ const Main = () => {
         selectGastoRef.current.value = selectGastoRef.current[0].value;
     }
 
+    const handleCloseModalEdit = () => {
+        selectGastoRef_edit.current.value = null;
+        inputPrecioRef_edit.current.value = null;
+        selectGastoRef_edit.current.value = selectGastoRef_edit.current[0].value;
+    }
+
     
 
     const handleChange = (e) => {
