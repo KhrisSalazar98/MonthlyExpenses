@@ -6,7 +6,7 @@ import { editExp } from '../features/expenses/expensesSlice';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faBookOpen, faHandHoldingDollar, faPenToSquare, faCircleExclamation} from '@fortawesome/free-solid-svg-icons';
 
-const ModalEditarGasto = ({handleViewSelectEdit, selectEdit, selectorCommonExpenses, selectGastoRef_edit, inputGastoRef_edit, inputPrecioRef_edit}) => {
+const ModalEditarGasto = ({handleCloseModalEdit, handleViewSelectEdit, selectEdit, selectorCommonExpenses, selectGastoRef_edit, inputGastoRef_edit, inputPrecioRef_edit}) => {
 
     const expCaptured = useSelector(state => state.deleteExp);
 
@@ -32,7 +32,7 @@ const ModalEditarGasto = ({handleViewSelectEdit, selectEdit, selectorCommonExpen
                     <div className="modal-content">
                         <div className="modal-header">
                             <h3 className="modal-title fs-5 modal_titulo_desktop" id="modalEditarGastoLabel"><FontAwesomeIcon className='iconTitle' icon={faPenToSquare} /> Editar Gasto</h3>
-                            <button type="button" className="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" />
+                            <button type="button" onClick={handleCloseModalEdit} className="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" />
                         </div>
                         <div className="modal-body">
                             <div className='container'>
@@ -110,7 +110,7 @@ const ModalEditarGasto = ({handleViewSelectEdit, selectEdit, selectorCommonExpen
 
                                                         
                                                         <div className='col-12 col-sm-12 text-center'>
-                                                            <button id="btnEditar" className='border-0 px-4 py-2 rounded-pill btn_disabled_edit sombra_btn' type="submit" data-bs-dismiss="modal"><FontAwesomeIcon className='iconTitle' icon={faPenToSquare} /> Guardar Cambios</button>
+                                                            <button id="btnEditar" onClick={handleCloseModalEdit} className='border-0 px-4 py-2 rounded-pill btn_disabled_edit sombra_btn' type="submit" data-bs-dismiss="modal"><FontAwesomeIcon className='iconTitle' icon={faPenToSquare} /> Guardar Cambios</button>
                                                         </div>
                                                     </div>
                                                 </form>

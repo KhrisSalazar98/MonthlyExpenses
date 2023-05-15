@@ -74,7 +74,6 @@ const Main = () => {
 
     const handleCloseModalEdit = () => {
         selectGastoRef_edit.current.value = null;
-        inputPrecioRef_edit.current.value = null;
         selectGastoRef_edit.current.value = selectGastoRef_edit.current[0].value;
     }
 
@@ -168,7 +167,8 @@ const Main = () => {
             <ModalEliminarGasto handleSubmit={handleSubmit}/>
 
             {/* Modal Editar Gasto */}
-            <ModalEditarGasto 
+            <ModalEditarGasto
+                handleCloseModalEdit={handleCloseModalEdit} 
                 handleViewSelectEdit={handleViewSelectEdit}
                 selectEdit={selectEdit}
                 selectorCommonExpenses={selectorCommonExpenses}
