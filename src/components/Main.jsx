@@ -58,6 +58,14 @@ const Main = () => {
 
     }
 
+    const validateFieldsEdit = (inputPrecioRef_edit) => {
+        
+        const btnEditar = document.querySelector('#btnEditar');
+
+        inputPrecioRef_edit.current.value.length >= 1 ? btnEditar.classList.remove("btn_disabled") : btnEditar.classList.add("btn_disabled");
+            
+    }
+
     const handleViewSelect = () => {
         setSelect(!select);
     }
@@ -175,6 +183,7 @@ const Main = () => {
                 selectGastoRef_edit={selectGastoRef_edit}
                 inputGastoRef_edit={inputGastoRef_edit}
                 inputPrecioRef_edit={inputPrecioRef_edit}
+                validateFieldsEdit={validateFieldsEdit}
             />
 
         </main>

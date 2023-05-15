@@ -1,4 +1,4 @@
-import React, { useEffect, useState }  from 'react';
+import React from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { editExp } from '../features/expenses/expensesSlice';
@@ -7,7 +7,7 @@ import { editTotal } from '../features/monthlyTotal/monthlyTotalSlice';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faBookOpen, faHandHoldingDollar, faPenToSquare, faCircleExclamation} from '@fortawesome/free-solid-svg-icons';
 
-const ModalEditarGasto = ({handleCloseModalEdit, handleViewSelectEdit, selectEdit, selectorCommonExpenses, selectGastoRef_edit, inputGastoRef_edit, inputPrecioRef_edit}) => {
+const ModalEditarGasto = ({handleCloseModalEdit, handleViewSelectEdit, selectEdit, selectorCommonExpenses, selectGastoRef_edit, inputGastoRef_edit, inputPrecioRef_edit, validateFieldsEdit}) => {
 
     const dispatch = useDispatch();
 
@@ -19,8 +19,6 @@ const ModalEditarGasto = ({handleCloseModalEdit, handleViewSelectEdit, selectEdi
 
     }
 
-    
-    
     const handleSubmitEdit = (e) => {
         e.preventDefault();
 
@@ -85,7 +83,7 @@ const ModalEditarGasto = ({handleCloseModalEdit, handleViewSelectEdit, selectEdi
                                                         
                                                         <div className={`col-12 col-sm-12 mb-4 ${selectEdit === true ? 'd-block' : 'd-none'}`}>
                                                             <label htmlFor="gasto_normal_edit"><FontAwesomeIcon icon={faBookOpen} /> Nuevo Gasto: </label><br />
-                                                            <select name="description_edit" className='border-0 mt-2 rounded-2 py-1 w-100' ref={selectGastoRef_edit} id="gasto_normal_edit">
+                                                            <select onChange={() => validateFieldsEdit(inputPrecioRef_edit)} name="description_edit" className='border-0 mt-2 rounded-2 py-1 w-100' ref={selectGastoRef_edit} id="gasto_normal_edit">
                                                                 <option value="Selecciona un gasto">Selecciona un gasto</option>
                                                                 {selectorCommonExpenses.map((cmExp) => (
                                                                     <option className={cmExp.name === expCaptured.description ? "d-none" : ""} key={cmExp.id} value={cmExp.name}>{cmExp.name}</option>
@@ -104,6 +102,7 @@ const ModalEditarGasto = ({handleCloseModalEdit, handleViewSelectEdit, selectEdi
                                                                 placeholder='Ingresa un gasto'
                                                                 autoComplete='off'
                                                                 ref={inputGastoRef_edit}
+                                                                onKeyUp={() => validateFieldsEdit(inputPrecioRef_edit)}
                                                             />
                                                         </div>
 
@@ -118,13 +117,15 @@ const ModalEditarGasto = ({handleCloseModalEdit, handleViewSelectEdit, selectEdi
                                                                 placeholder='Ingresa el precio'
                                                                 autoComplete='off'
                                                                 defaultValue={expCaptured.price}
-                                                                ref={inputPrecioRef_edit} 
+                                                                ref={inputPrecioRef_edit}
+                                                                onKeyUp={() => validateFieldsEdit(inputPrecioRef_edit)} 
+                                                                
                                                             />
                                                         </div>
 
                                                         
                                                         <div className='col-12 col-sm-12 text-center'>
-                                                            <button id="btnEditar" onClick={handleCloseModalEdit} className='border-0 px-4 py-2 rounded-pill btn_disabled_edit sombra_btn' type="submit" data-bs-dismiss="modal"><FontAwesomeIcon className='iconTitle' icon={faPenToSquare} /> Guardar Cambios</button>
+                                                            <button id="btnEditar" onClick={handleCloseModalEdit} className={`border-0 px-4 py-2 rounded-pill sombra_btn`} type="submit" data-bs-dismiss="modal"><FontAwesomeIcon className='iconTitle' icon={faPenToSquare} /> Guardar Cambios</button>
                                                         </div>
                                                     </div>
                                                 </form>

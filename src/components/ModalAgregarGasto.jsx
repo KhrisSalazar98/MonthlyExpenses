@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faBookOpen, faCircleExclamation, faHandHoldingDollar, faPlus} from '@fortawesome/free-solid-svg-icons';
+import {faBookOpen, faHandHoldingDollar, faPlus} from '@fortawesome/free-solid-svg-icons';
 
 const ModalAgregarGasto = ({handleCloseModalAdd, selectorTextMonth, handleSubmit, handleViewSelect, select, selectGastoRef, selectorCommonExpenses, inputGastoRef, inputPrecioRef, handleChange, validateFields}) => {
   return (
