@@ -2,6 +2,7 @@ import React  from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { editExp } from '../features/expenses/expensesSlice';
+import { editTotal } from '../features/monthlyTotal/monthlyTotalSlice';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faBookOpen, faHandHoldingDollar, faPenToSquare, faCircleExclamation} from '@fortawesome/free-solid-svg-icons';
@@ -22,6 +23,11 @@ const ModalEditarGasto = ({handleCloseModalEdit, handleViewSelectEdit, selectEdi
             inputPrecio: inputPrecioRef_edit.current.value,
             selectEdit
         }));
+
+        dispatch(editTotal({
+            oldPrice: expCaptured.price,
+            newPrice: inputPrecioRef_edit.current.value
+        }))
     }
 
 
