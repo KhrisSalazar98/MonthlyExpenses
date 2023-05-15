@@ -8,6 +8,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getTheme } from './features/theme/themeSlice';
 import { getExpenses } from './features/expenses/expensesSlice';
 import { getTotal } from './features/monthlyTotal/monthlyTotalSlice';
+import { clearAllExpenses } from './features/expenses/expensesSlice';
+import { clearAllTotals } from './features/monthlyTotal/monthlyTotalSlice';
 
 import Main from './components/Main';
 
@@ -17,6 +19,8 @@ const KEY_EXPENSES = "monthlyexpenses.exp";
 const KEY_MONTHLYTOTAL = "monthlyexpenses.total";
 
 function App() {
+
+  const fecha = new Date();
 
   const dispatch = useDispatch();
   const selectorTheme = useSelector(state => state.theme);
@@ -41,6 +45,13 @@ function App() {
 
     if(storedMonthlyTotal) {
       dispatch(getTotal(storedMonthlyTotal));
+    }
+
+    if(fecha.getMonth === 0 && fecha.getDay === 1) {
+      dispatch(clearAllExpenses());
+      dispatch(clearAllTotals());
+    }else{
+      console.log("No es posible eliminar los registros");
     }
 
   }, [dispatch]);

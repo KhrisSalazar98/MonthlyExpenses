@@ -254,12 +254,19 @@ export const expensesSlice = createSlice({
                     foundExp.gastoNormal = selectEdit;
                 }
             }
+  
+        },
+        clearAllExpenses: (state, payload) => {
+            const fecha = new Date();
 
+            const lastYearExpenses = state.filter(exp => exp.year === fecha.getFullYear());
 
-            
+            state = lastYearExpenses;
+
+            return state;
         }
     }
 });
 
-export const {getExpenses, addExp, deleteExp, editExp} = expensesSlice.actions;
+export const {getExpenses, addExp, deleteExp, editExp, clearAllExpenses} = expensesSlice.actions;
 export default expensesSlice.reducer;
