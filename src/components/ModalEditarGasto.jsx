@@ -1,9 +1,14 @@
 import React from 'react';
 
+import { useSelector } from 'react-redux';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faPlus, faBookOpen, faHandHoldingDollar, faPenToSquare, faCircleExclamation} from '@fortawesome/free-solid-svg-icons';
+import {faBookOpen, faHandHoldingDollar, faPenToSquare, faCircleExclamation} from '@fortawesome/free-solid-svg-icons';
 
 const ModalEditarGasto = ({handleViewSelectEdit,selectEdit,selectorCommonExpenses}) => {
+
+    const expCaptured = useSelector(state => state.deleteExp);
+
 
     return (
         <>
@@ -16,7 +21,7 @@ const ModalEditarGasto = ({handleViewSelectEdit,selectEdit,selectorCommonExpense
                         </div>
                         <div className="modal-body">
                             <div className='container'>
-                                <p className='text-center mt-4'><FontAwesomeIcon className='iconTitle' icon={faCircleExclamation} size="xl" /> El gasto a editar corresponde al mes de.</p>
+                                <p className='text-center mt-4'><FontAwesomeIcon className='iconTitle' icon={faCircleExclamation} size="xl" /> El gasto a editar corresponde al mes de {expCaptured.month}.</p>
 
                                 <div className="row justify-content-center mt-5">
                                     <div className='col-12 col-sm-12 col-md-11'>
@@ -47,38 +52,42 @@ const ModalEditarGasto = ({handleViewSelectEdit,selectEdit,selectorCommonExpense
 
                                                         
                                                         <div className={`col-12 col-sm-12 mb-4 ${selectEdit === true ? 'd-block' : 'd-none'}`}>
-                                                            <label htmlFor="gasto_normal"><FontAwesomeIcon icon={faBookOpen} /> Gasto: </label><br />
-                                                            <select name="description_edit" className='border-0 mt-2 rounded-2 py-1 w-100' id="gasto_normal_edit">
-                                                                <option value="0">Selecciona un gasto</option>
+                                                            <label htmlFor="gasto_normal_edit"><FontAwesomeIcon icon={faBookOpen} /> Gasto: </label><br />
+                                                            <select name="description_edit" className='border-0 mt-2 rounded-2 py-1 w-100' id="gasto_normal_edit" defaultValue={expCaptured.gastoNormal === true ? expCaptured.description : "Selecciona una opción"}>
+                                                                {expCaptured.gastoNormal === true ? <option selected value={expCaptured.description}>{expCaptured.description}</option> : ""}
+                                                                
+                                                                <option value="Selecciona un gasto">Selecciona un gasto</option>
                                                                 {selectorCommonExpenses.map((cmExp) => (
-                                                                    <option key={cmExp.id} value={cmExp.name}>{cmExp.name}</option>
+                                                                    <option className={cmExp.name === expCaptured.description ? "d-none" : ""} key={cmExp.id} value={cmExp.name}>{cmExp.name}</option>
                                                                 ))}
                                                             </select>
                                                         </div>
                                                             
                                                        
                                                         <div className={`col-12 col-sm-12 mb-4 ${selectEdit === true ? 'd-none' : 'd-block'}`}>
-                                                            <label htmlFor="otro"><FontAwesomeIcon icon={faBookOpen} /> Gasto: </label><br />
+                                                            <label htmlFor="otro_edit"><FontAwesomeIcon icon={faBookOpen} /> Gasto: </label><br />
                                                             <input 
                                                                 name="description_edit"
                                                                 className='border-0 mt-2 rounded-2 w-100 input_form'
-                                                                id="otro"
+                                                                id="otro_edit"
                                                                 type="text"
                                                                 placeholder='Ingresa un gasto'
-                                                                autoComplete='off' 
+                                                                autoComplete='off'
+                                                                defaultValue={expCaptured.gastoNormal === true ? "" : expCaptured.description} 
                                                             />
                                                         </div>
 
                                                        
                                                         <div className='col-12 col-sm-12 mb-4'>
-                                                            <label htmlFor="otro"><FontAwesomeIcon icon={faHandHoldingDollar} /> Precio: </label><br />
+                                                            <label htmlFor="precio_edit"><FontAwesomeIcon icon={faHandHoldingDollar} /> Precio: </label><br />
                                                             <input
                                                                 name="price_edit"
                                                                 className='border-0 mt-2 rounded-2 w-100 input_form'
-                                                                id="otro"
+                                                                id="precio_edit"
                                                                 type="number"
                                                                 placeholder='Ingresa el precio'
-                                                                autoComplete='off' 
+                                                                autoComplete='off'
+                                                                defaultValue={expCaptured.price} 
                                                             />
                                                         </div>
 
