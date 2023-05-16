@@ -58,7 +58,7 @@ const ModalEditarGasto = ({handleCloseModalEdit, handleViewSelectEdit, selectEdi
                                                     <div className="row">
 
                                                         <div className='col-12 col-sm-12 mb-2'>
-                                                            <p className='text-white'><FontAwesomeIcon icon={faBookOpen} /> Gasto Actual: <span>{expCaptured.description}</span></p>
+                                                            <p className='text-center text-white'><FontAwesomeIcon icon={faBookOpen} /> Gasto Actual: <span>{expCaptured.description}</span></p>
                                                         </div>
 
                                                         <div className='col-12 col-sm-12 mb-4'>

@@ -83,6 +83,11 @@ export const monthlyTotalSlice = createSlice({
             const currentYear = new Date().getFullYear();
 
             state[mes].total = state[mes].total - parseInt(action.payload.price);
+            
+            if(state[mes].total < 0){
+                state[mes].total = 0;
+            }
+
             state[mes].year = currentYear;
         },
         editTotal: (state, action) => {

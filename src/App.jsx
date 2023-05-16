@@ -47,11 +47,9 @@ function App() {
       dispatch(getTotal(storedMonthlyTotal));
     }
 
-    if(fecha.getMonth === 0 && fecha.getDay === 1) {
+    if(fecha.getMonth() === 0 && fecha.getDate() === 1) {
       dispatch(clearAllExpenses());
       dispatch(clearAllTotals());
-    }else{
-      console.log("No es posible eliminar los registros");
     }
 
   }, [dispatch]);

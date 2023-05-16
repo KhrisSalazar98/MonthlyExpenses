@@ -92,7 +92,7 @@ const AccordionExpenses = ({fecha, numero_mes, selectorExpenses, txt_mes, select
                         
                         {/* Gasto Total Mensual */}
                         <div className={`txt_gasto_mensual mt-3 ${selectorExpenses.filter((exp) => exp.monthNumber === numero_mes).length > 0 ? 'd-block' : 'd-none'}`}>
-                            <p>Gasto Total Mensual: ${selectorMonthlyTotal.total}</p>
+                            <p className='px-2'>Gasto Total Mensual: ${selectorMonthlyTotal.total}</p>
                         </div>
 
                     </div>
