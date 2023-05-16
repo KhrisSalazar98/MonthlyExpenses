@@ -57,7 +57,7 @@ const AccordionExpenses = ({fecha, numero_mes, selectorExpenses, txt_mes, select
                                                     <h6 className='text-center mb-4'><FontAwesomeIcon className='iconMainList' icon={faCalendarDays} /> {exp.day < 10 ? `0${exp.day}`: exp.day}/{exp.monthNumber+1 < 10 ? `0${exp.monthNumber+1}` : exp.monthNumber+1}/{exp.year}</h6>
 
                                                     <p>
-                                                        <span className='data_title'><FontAwesomeIcon className='iconMainList' icon={faBookOpen} /> Descripción:</span> <span className='data_item_desktop'>{exp.description}</span>
+                                                        <span className='data_title'><FontAwesomeIcon className='iconMainList' icon={faBookOpen} /> Gasto:</span> <span className='data_item_desktop'>{exp.description}</span>
                                                         <br />
                                                         <span className='data_item_mobile'>{exp.description}</span>
                                                     </p>
