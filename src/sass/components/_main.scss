@@ -1,3 +1,807 @@
 body {
     font-family: $family;
 }
+
+hr {
+    opacity: 1;
+    border-top: 3px solid;
+}
+
+.scroll_row {
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.scroll_row::-webkit-scrollbar {
+    width: 5px;
+}
+
+.scroll_row::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+}
+
+.txt_noExpenses {
+    animation: txt_noExpenses_animation 3s ease-out infinite;
+}
+
+@keyframes txt_accordion_animation {
+    0% { transform: translateY(0); }
+    25% { transform: translateY(-5px); }
+    50% { transform: translateY(0); }
+    75% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes txt_noExpenses_animation {
+    0% {transform: scale(1);}
+    25% {transform: scale(1.25);}
+    50% {transform: scale(1);}
+    75% {transform: scale(1.25);}
+    100% {transform: scale(1);}
+}
+
+.Light {
+
+    #root {
+
+        main {
+            .container-md {
+                h2 {
+                    color: $color_light_principal;
+                    @include transition_elements();
+                }
+
+                hr {
+                    border-color: $color_light_principal;
+                    @include transition_elements();
+                }
+
+                #accordionExample {
+
+                    div {
+                        
+                        background-color: $color_light_principal;
+                        @include transition_elements();
+                        
+                        h2 {
+
+                            button {
+                                background-color: $color_light_principal;
+                                color: $color_light_secundario;
+                                @include transition_elements();
+                            }
+
+                            button:not(.collapsed) {
+                                background-color: $color_dark_principal;
+
+                                span {
+                                    animation: txt_accordion_animation 3s ease-out infinite;
+                                }
+                            }
+                            
+                        }
+
+                        div {
+                            div {
+                                div {
+                                    button {
+                                        color: $color_light_secundario;
+                                        background-color: $color_dark_principal;
+                                        @include transition_elements();
+                                    }
+
+                                    button:hover {
+                                        @include color_hover($blanco, $color_dark_secundario);
+                                    }
+                                }
+                                
+                                
+                                .container-md {
+
+                                    .scroll_row::-webkit-scrollbar-thumb {
+                                        background-color: $color_dark_principal;
+                                        @include transition_elements();
+                                    }
+                                    
+                                    .row{
+
+
+                                        div {
+                                            div {
+                                                background-color: $color_dark_principal;
+                                                @include transition_elements();
+
+                                                h6 {
+
+                                                    color: $blanco;
+                                                    @include transition_elements();
+                                                    
+                                                    .iconMainList {
+                                                        color: $color_light_secundario;
+                                                        @include transition_elements();
+                                                    }
+                                                }
+
+                                                p {
+                                                    .data_title {
+                                                        color: $color_light_secundario;
+                                                        @include transition_elements();
+                                                    }
+
+                                                    span {
+                                                        color: $blanco;
+                                                        @include transition_elements();
+                                                    }
+                                                }
+
+                                                div {
+
+                                                    button {
+                                                        color: $blanco;
+                                                        background-color: $color_light_principal;
+                                                        @include transition_elements();
+                                                    }
+
+                                                    button:hover {
+                                                        @include color_hover($blanco, $color_dark_secundario);
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        div {
+                                            .txt_noExpenses {
+                                                color: $blanco;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .txt_gasto_mensual {
+                            p {
+                                color: $blanco;
+                            }
+                        }
+
+                       
+                    }
+                }
+
+                
+            }
+
+            /* Modal Agregar Gasto */
+            #modalAgregarGasto {
+                .modal-dialog {
+                    .modal-content {
+                        background-color: $color_light_secundario;
+                        @include transition_elements();
+
+                        .modal-header {
+                            color: $color_light_secundario;
+                            background-color: $color_light_principal;
+                            @include transition_elements();
+                        }
+
+                        .modal-body {
+                            .container {
+
+                                p {
+                                    color: $color_light_principal;
+                                }
+                        
+                                .row{
+                                    .col-12 {
+                                        .rounded-3 {
+                                            background-color: $color_light_principal;
+                                            @include transition_elements();
+
+                                            .container {
+                                                form {
+                                                    .row {
+
+                                                        /* Radio Button */
+                                                        .col-12 {
+                                                            label {
+                                                                color: $color_light_secundario;
+                                                                @include transition_elements();
+                                                            }
+                                                            .row {
+                                                                .col-12 {
+                                                                    .form-check-input:checked {
+                                                                        background-image: url('../../img/radioButton_light.svg');
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+
+                                                    
+                                                        .col-12 {
+                                                            
+                                                            .input_form {
+                                                                background-color: $blanco;
+                                                            }
+
+                                                            button {
+                                                                color: $blanco;
+                                                                background-color: $color_dark_principal;
+                                                                @include transition_elements();
+                                                            }
+
+                                                            button:hover {
+                                                                @include color_hover($blanco, $color_dark_secundario);
+                                                            }
+                                                        }
+
+                                                    
+
+                                                        
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                    
+                            
+                            }
+                            
+                        }
+                    }
+                }
+            }
+
+            /* Modal Eliminar Gasto */
+            #modalEliminarGasto {
+                .modal-dialog {
+                    .modal-content {
+                        background-color: $color_light_secundario;
+                        @include transition_elements();
+
+                        .modal-header {
+                            color: $color_light_secundario;
+                            background-color: $color_light_principal;
+                            @include transition_elements();
+                        }
+
+                        .modal-body {
+                            .container {
+
+                                p {
+                                    color: $color_light_principal;
+                                }
+                        
+                                .row{
+                                    .col-12 {
+                                        .rounded-3 {
+                                            background-color: $color_light_principal;
+                                            @include transition_elements();
+
+                                            .container {
+                                                form {
+                                                    .row {
+    
+                                                        .col-12 {
+
+                                                            p {
+                                                                .data_title {
+                                                                    color: $color_light_secundario;
+                                                                    @include transition_elements();
+                                                                }
+            
+                                                                span {
+                                                                    color: $blanco;
+                                                                    @include transition_elements();
+                                                                }
+                                                            }
+                                                            
+                                                            
+                                                            button {
+                                                                color: $blanco;
+                                                                background-color: $color_dark_principal;
+                                                                @include transition_elements();
+                                                            }
+
+                                                            button:hover {
+                                                                @include color_hover($blanco, $color_dark_secundario);
+                                                            }
+                                                        }
+
+                                                    
+
+                                                        
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                    
+                            
+                            }
+                            
+                        }
+                    }
+                }
+            }
+
+            /* Modal Editar Gasto*/
+            #modalEditarGasto {
+                .modal-dialog {
+                    .modal-content {
+                        background-color: $color_light_secundario;
+                        @include transition_elements();
+
+                        .modal-header {
+                            color: $color_light_secundario;
+                            background-color: $color_light_principal;
+                            @include transition_elements();
+                        }
+
+                        .modal-body {
+                            .container {
+
+                                p {
+                                    color: $color_light_principal;
+                                }
+                        
+                                .row{
+                                    .col-12 {
+                                        .rounded-3 {
+                                            background-color: $color_light_principal;
+                                            @include transition_elements();
+
+                                            .container {
+                                                form {
+                                                    .row {
+
+                                                        /* Radio Button */
+                                                        .col-12 {
+                                                            label {
+                                                                color: $color_light_secundario;
+                                                                @include transition_elements();
+                                                            }
+                                                            .row {
+                                                                .col-12 {
+                                                                    .form-check-input:checked {
+                                                                        background-image: url('../../img/radioButton_light.svg');
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+
+                                                    
+                                                        .col-12 {
+                                                            
+                                                            .input_form {
+                                                                background-color: $blanco;
+                                                            }
+
+                                                            button {
+                                                                color: $blanco;
+                                                                background-color: $color_dark_principal;
+                                                                @include transition_elements();
+                                                            }
+
+                                                            button:hover {
+                                                                @include color_hover($blanco, $color_dark_secundario);
+                                                            }
+                                                        }
+
+                                                    
+
+                                                        
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                    
+                            
+                            }
+                            
+                        }
+                    }
+                }
+            }
+
+            
+        }
+    }
+}
+
+.Dark {
+
+    #root {
+        
+        main {
+            .container-md {
+                h2 {
+                    color: $color_light_secundario;
+                    @include transition_elements();
+                }
+
+                hr {
+                    color: $color_dark_principal;
+                    @include transition_elements();
+                }
+
+                #accordionExample {
+
+                    div {
+
+                        background-color: $color_dark_principal;
+                        @include transition_elements();
+                        
+                        h2 {
+
+                            button {
+                                background-color: $color_dark_principal;
+                                color: $color_light_secundario;
+                                @include transition_elements();
+                            }
+
+                            button:not(.collapsed) {
+                                background-color: $color_light_principal;
+
+                                span {
+                                    animation: txt_accordion_animation 3s ease-out infinite;
+                                }
+                            }
+                            
+                        }
+
+                        div {
+                            div {
+                                div {
+                                    button {
+                                        color: $color_light_secundario;
+                                        background-color: $color_dark_secundario;
+                                        @include transition_elements();
+                                    }
+
+                                    button:hover {
+                                        @include color_hover($blanco, $color_light_principal);
+                                    }
+                                }
+                                
+                                
+                                .container-md {
+
+                                    .scroll_row::-webkit-scrollbar-thumb {
+                                        background-color: $color_dark_secundario;
+                                        @include transition_elements();
+                                    }
+                                    
+                                    .row{
+
+
+                                        div {
+                                            div {
+                                                background-color: $color_dark_secundario;
+                                                @include transition_elements();
+
+                                                h6 {
+
+                                                    color: $color_light_secundario;
+                                                    @include transition_elements();
+                                                    
+                                                    .iconMainList {
+                                                        color: $color_light_principal;
+                                                        @include transition_elements();
+                                                    }
+                                                }
+
+                                                p {
+                                                    .data_title {
+                                                        color: $color_light_principal;
+                                                        @include transition_elements();
+                                                    }
+
+                                                    span {
+                                                        color: $color_light_secundario;
+                                                        @include transition_elements();
+                                                    }
+                                                }
+
+                                                div {
+
+                                                    button {
+                                                        color: $color_light_secundario;
+                                                        background-color: $color_dark_principal;
+                                                        @include transition_elements();
+                                                    }
+
+                                                    button:hover {
+                                                        @include color_hover($blanco, $color_light_principal);
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        div {
+                                            .txt_noExpenses {
+                                                color: $blanco;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .txt_gasto_mensual {
+                            p {
+                                color: $blanco;
+                            }
+                        }
+
+
+                    }
+                }
+
+                
+            }
+
+            #modalAgregarGasto {
+                .modal-dialog {
+                    .modal-content {
+                        background-color: $color_dark_secundario;
+                        @include transition_elements();
+
+                        .modal-header {
+                            color: $color_light_secundario;
+                            background-color: $color_dark_principal;
+                            @include transition_elements();
+                        }
+
+                        .modal-body {
+                            .container {
+
+                                p {
+                                    color: $color_light_principal;
+                                }
+                        
+                                .row{
+                                    .col-12 {
+                                        .rounded-3 {
+                                            background-color: $color_dark_principal;
+                                            @include transition_elements();
+
+                                            .container {
+                                                form {
+                                                    .row {
+
+                                                        /* Radio Button */
+                                                        .col-12 {
+                                                            label {
+                                                                color: $color_light_secundario;
+                                                                @include transition_elements();
+                                                            }
+                                                            .row {
+                                                                .col-12 {
+                                                                    .form-check-input:checked {
+                                                                        background-image: url('../../img/radioButton_dark.svg');
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+
+                                                    
+                                                        .col-12 {
+                                                            select {
+
+                                                                option {
+                                                                    @include transition_elements();
+                                                                }
+
+                                                                option:hover {
+                                                                    background-color: $color_dark_secundario !important;
+                                                                }
+                                                            }
+
+                                                            .input_form {
+                                                                background-color: $color_light_secundario;
+                                                            }
+
+                                                            button {
+                                                                color: $blanco;
+                                                                background-color: $color_dark_secundario;
+                                                                @include transition_elements();
+                                                            }
+
+                                                            button:hover {
+                                                                @include color_hover($blanco, $color_light_principal);
+                                                            }
+                                                        }
+
+                                                    
+
+                                                        
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                    
+                            
+                            }
+                            
+                        }
+                    }
+                }
+            }
+
+            /* Modal Eliminar Gasto */
+            #modalEliminarGasto {
+                .modal-dialog {
+                    .modal-content {
+                        background-color: $color_dark_secundario;
+                        @include transition_elements();
+
+                        .modal-header {
+                            color: $color_light_secundario;
+                            background-color: $color_dark_principal;
+                            @include transition_elements();
+                        }
+
+                        .modal-body {
+                            .container {
+
+                                p {
+                                    color: $color_light_principal;
+                                }
+                        
+                                .row{
+                                    .col-12 {
+                                        .rounded-3 {
+                                            background-color: $color_dark_principal;
+                                            @include transition_elements();
+
+                                            .container {
+                                                form {
+                                                    .row {
+    
+                                                        .col-12 {
+
+                                                            p {
+                                                                .data_title {
+                                                                    color: $color_light_secundario;
+                                                                    @include transition_elements();
+                                                                }
+            
+                                                                span {
+                                                                    color: $blanco;
+                                                                    @include transition_elements();
+                                                                }
+                                                            }
+                                                            
+                                                            
+                                                            button {
+                                                                color: $blanco;
+                                                                background-color: $color_dark_secundario;
+                                                                @include transition_elements();
+                                                            }
+
+                                                            button:hover {
+                                                                @include color_hover($blanco, $color_light_principal);
+                                                            }
+                                                        }
+
+                                                    
+
+                                                        
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                    
+                            
+                            }
+                            
+                        }
+                    }
+                }
+            }
+
+            /* Modal Editar Gasto*/
+            #modalEditarGasto {
+                .modal-dialog {
+                    .modal-content {
+                        background-color: $color_dark_secundario;
+                        @include transition_elements();
+
+                        .modal-header {
+                            color: $color_light_secundario;
+                            background-color: $color_dark_principal;
+                            @include transition_elements();
+                        }
+
+                        .modal-body {
+                            .container {
+
+                                p {
+                                    color: $color_light_principal;
+                                }
+                        
+                                .row{
+                                    .col-12 {
+                                        .rounded-3 {
+                                            background-color: $color_dark_principal;
+                                            @include transition_elements();
+
+                                            .container {
+                                                form {
+                                                    .row {
+
+                                                        /* Radio Button */
+                                                        .col-12 {
+                                                            label {
+                                                                color: $color_light_secundario;
+                                                                @include transition_elements();
+                                                            }
+                                                            .row {
+                                                                .col-12 {
+                                                                    .form-check-input:checked {
+                                                                        background-image: url('../../img/radioButton_dark.svg');
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+
+                                                    
+                                                        .col-12 {
+                                                            select {
+
+                                                                option {
+                                                                    @include transition_elements();
+                                                                }
+
+                                                                option:hover {
+                                                                    background-color: $color_dark_secundario !important;
+                                                                }
+                                                            }
+
+                                                            .input_form {
+                                                                background-color: $color_light_secundario;
+                                                            }
+
+                                                            button {
+                                                                color: $blanco;
+                                                                background-color: $color_dark_secundario;
+                                                                @include transition_elements();
+                                                            }
+
+                                                            button:hover {
+                                                                @include color_hover($blanco, $color_light_principal);
+                                                            }
+                                                        }
+
+                                                    
+
+                                                        
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                    
+                            
+                            }
+                            
+                        }
+                    }
+                }
+            }
+
+            
+        }
+    }
+
+}
