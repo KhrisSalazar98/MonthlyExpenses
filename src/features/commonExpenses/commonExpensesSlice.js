@@ -7,6 +7,10 @@ const initialState = [
     },
     {
         id: "cmExp_1",
+        name: "Arriendo"
+    },
+    {
+        id: "cmExp_1",
         name: "Compras de Supermercado"
     },
     {
@@ -16,6 +20,10 @@ const initialState = [
     {
         id: "cmExp_3",
         name: "Gas"
+    },
+    {
+        id: "cmExp_4",
+        name: "Gastos Comunes"
     },
     {
         id: "cmExp_5",
@@ -28,6 +36,10 @@ const initialState = [
     {
         id: "cmExp_7",
         name: "Plan Telefonía Móvil"
+    },
+    {
+        id: "cmExp_8",
+        name: "TV Cable"
     }
 ];
 
